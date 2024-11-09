@@ -28,48 +28,47 @@ This Go program is designed to communicate with Goodwe MS Series inverters over 
 To run this program, follow these steps:
 
  1. Install Go (if you haven't already):
-```shell
 	Download and install Go from https://golang.org/dl/.
-```
- 2. Clone the repository:
+
+ 2. Clone the repository:r
 ```shell
-	git clone https://github.com/yourusername/goodwe-modbus-reader.git
-	cd goodwe-modbus-reader
+$ git clone https://github.com/yourusername/goodwe-modbus-reader.git
+$ cd goodwe-modbus-reader
 ```
  3. Install the required Go packages:
 
 ```shell
-    go get github.com/goburrow/modbus
+$ go get github.com/goburrow/modbus
 ````
 
  4. Configure the JSON file:
 	Create a JSON configuration file (e.g., src/inverter.json) to define the registers you want to poll from the inverter. Below is an example of a JSON configuration:
   
 ```json
-      [
-        {
-        "address": "0x1000",
-        "name": "Voltage",
-        "property": "Line Voltage",
-        "type": "U16",
-        "length": 2,
-        "sf_gain": 1,
-        "units": "V",
-        "range": "0-500",
-        "note": "AC Line Voltage"
-        },
-        {
-        "address": "0x1002",
-        "name": "Current",
-        "property": "Line Current",
-        "type": "S16",
-        "length": 2,
-        "sf_gain": 1,
-        "units": "A",
-        "range": "-100-100",
-        "note": "AC Line Current"
-        }
-        ]
+[
+   {
+   "address": "0x1000",
+   "name": "Voltage",
+   "property": "Line Voltage",
+   "type": "U16",
+   "length": 2,
+   "sf_gain": 1,
+   "units": "V",
+   "range": "0-500",
+   "note": "AC Line Voltage"
+   },
+   {
+   "address": "0x1002",
+   "name": "Current",
+   "property": "Line Current",
+   "type": "S16",
+   "length": 2,
+   "sf_gain": 1,
+   "units": "A",
+   "range": "-100-100",
+   "note": "AC Line Current"
+   }
+]
 ```
 
 `address`: The Modbus register address (in hexadecimal).
@@ -98,9 +97,7 @@ Modify the JSON file to include the addresses, data types, and other parameters 
 
  6. Run the program
 
-```shell
-go run main.go
-``` 
+`go run main.go` 
 
 The program will connect to the inverter at the IP address `10.0.0.111` (as specified in the code) and read the registers defined in the JSON file. It will then print the values along with units and scaling information.
 
@@ -109,10 +106,10 @@ The program will connect to the inverter at the IP address `10.0.0.111` (as spec
 When the program successfully retrieves data, it will display something like this:
  
 ```shell
-    MODBUS READER (Goodwe MS Series) by TTKLabs
-    ------------------------------------------
-    Voltage: 230.50 V
-    Current: 12.30 A
+MODBUS READER (Goodwe MS Series) by TTKLabs
+------------------------------------------
+Voltage: 230.50 V
+Current: 12.30 A
 ````
 ## Modifying the JSON Configuration for Different Registers
 
@@ -127,17 +124,17 @@ If you need to poll different registers from the inverter, you must:
 For example, to add a register for "Power" with address 0x1004, you could add the following entry to the JSON file: 
 
 ```json
-    {
-      "address": "0x1004",
-      "name": "Power",
-      "property": "Instantaneous Power",
-      "type": "U32",
-      "length": 4,
-      "sf_gain": 1000,
-      "units": "W",
-      "range": "0-10000",
-      "note": "Instantaneous Power in Watts"
-    }
+{
+    "address": "0x1004",
+    "name": "Power",
+    "property": "Instantaneous Power",
+    "type": "U32",
+    "length": 4,
+    "sf_gain": 1000,
+    "units": "W",
+    "range": "0-10000",
+    "note": "Instantaneous Power in Watts"
+}
 ```
 ## License
 This project is licensed under the BSD 2-Clause License. See the LICENSE file for more information.

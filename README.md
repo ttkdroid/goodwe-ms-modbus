@@ -30,7 +30,7 @@ To run this program, follow these steps:
  1. Install Go (if you haven't already):
 	Download and install Go from https://golang.org/dl/.
 
- 2. Clone the repository:r
+ 2. Clone the repository:
 ```shell
 $ git clone https://github.com/yourusername/goodwe-modbus-reader.git
 $ cd goodwe-modbus-reader

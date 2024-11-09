@@ -33,8 +33,6 @@ Download and install Go from https://golang.org/dl/.
 
 **2. Clone the repository**
 
- 2. Clone the repository:
- 
 ```shell
 $ git clone https://github.com/yourusername/goodwe-modbus-reader.git
 $ cd goodwe-modbus-reader

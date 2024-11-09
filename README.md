@@ -27,22 +27,24 @@ This Go program is designed to communicate with Goodwe MS Series inverters over 
 ## Installation
 To run this program, follow these steps:
 
- 1. Install Go (if you haven't already):
-	Download and install Go from https://golang.org/dl/.
+**1. Install Go (if you haven't already)**
 
- 2. Clone the repository:r
+Download and install Go from https://golang.org/dl/.
+
+**2. Clone the repository**
+
 ```shell
 $ git clone https://github.com/yourusername/goodwe-modbus-reader.git
 $ cd goodwe-modbus-reader
 ```
- 3. Install the required Go packages:
+**3. Install the required Go packages**
 
-```shell
+```
 $ go get github.com/goburrow/modbus
 ````
+**4. Configure the JSON file**
 
- 4. Configure the JSON file:
-	Create a JSON configuration file (e.g., src/inverter.json) to define the registers you want to poll from the inverter. Below is an example of a JSON configuration:
+Create a JSON configuration file (e.g., src/inverter.json) to define the registers you want to poll from the inverter. Below is an example of a JSON configuration:
   
 ```json
 [
@@ -70,7 +72,6 @@ $ go get github.com/goburrow/modbus
    }
 ]
 ```
-
 `address`: The Modbus register address (in hexadecimal).
 
 `name`: A descriptive name for the register.
@@ -89,13 +90,13 @@ $ go get github.com/goburrow/modbus
 
 `note`: Additional information about the register.
 
- 5. Modify the code if necessary:
+**5. Modify the code if necessary**
 
 If you want to poll different registers, consult the Modbus documentation for your inverter model.
 
 Modify the JSON file to include the addresses, data types, and other parameters corresponding to the registers you wish to poll.
 
- 6. Run the program
+**6. Run the program**
 
 `go run main.go` 
 
